@@ -1,0 +1,54 @@
+#include<iostream>
+using namespace std;
+
+const int maxn = 1e4;
+int a[maxn] = {0};
+
+int isWaterNmuber(int n){
+    int m = n;
+    int a,b,c,sum;
+    a = n%10;
+    n /= 10;
+    b = n%10;
+    n /= 10;
+    c = n%10;
+    n /= 10;
+    sum = a*a*a + b*b*b + c*c*c;
+    if(m == sum){
+        return 1;
+    }
+    else{
+        return 0;
+    }
+}
+
+void getNumber(){
+    for(int i = 100; i < maxn; i++){
+        if(isWaterNmuber(i)==1){
+            a[i] = 1;
+        }
+    }
+}
+int main(){
+    int m,n;
+    getNumber();
+    while(cin >> m >> n){
+        if(m==0 && n==0){
+            break;
+        }
+        int flag = 0;
+        for(int i = m; i <= n; i++){
+            if(a[i] == 1){
+                cout << i <<" ";
+                flag = 1;
+            }
+        }
+        if(flag == 0){
+            cout << "no" << endl;
+        }
+        else{
+            cout << endl;
+        }
+    }
+    return 0;
+}

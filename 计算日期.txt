@@ -1,0 +1,32 @@
+#include<iostream>
+using namespace std;
+
+int a[12]={31,28,31,30,31,30,31,31,30,31,30,31};
+int isPrime(int n){
+    if(n%4==0){
+        return 1;
+    }
+    else{
+        return 0;
+    }
+}
+
+int main(){
+    int year,month,day;
+    while(cin >> year >> month >> day){
+        int sum = 0;
+        if(month >12 || month < 1){
+            cout << "Input error!" << endl;
+            break;
+        }
+        if(isPrime(year)){
+            a[1] += 1;
+        }
+        for(int i = 0; i < month-1; i++){
+            sum += a[i];
+        }
+        sum += day;
+        cout << sum << endl;
+    }
+    return 0;
+}

@@ -1,0 +1,68 @@
+一：
+USE student;
+#create创建表，create table 表名
+CREATE TABLE stuinfo(
+		id int,
+		`name` VARCHAR(20),
+		class VARCHAR(50)
+);
+
+#insert插入，insert into 表名（）
+INSERT into stuinfo
+VALUES(1,'张三','一班'),
+(2,'李四','二班'),
+(3,'王五','三班'),
+(3,'王吴','三班')
+
+INSERT into stuinfo set `name`='周度',id=10
+
+#delete删除：delete from 表名 where 条件
+DELETE FROM stuinfo WHERE id=10
+DELETE FROM stuinfo WHERE id=3
+
+INSERT INTO stuinfo
+VALUES(3,'王五','三班'),
+(4,'王吴','三班')
+
+二：
+use student;
+
+CREATE TABLE score(
+		id int,
+		`name` VARCHAR(20),
+		grade FLOAT
+);
+
+INSERT into score
+VALUES(1,'张三',100),
+(2,'李四',80),
+(3,'王五',76),
+(3,'王吴',60)
+
+#select查询，select+属性+from+表+where+条件；
+SELECT `name`,grade FROM score WHERE grade >= 80;
+SELECT * from score;
+
+#select 名字+as+改的名字+from+表+WHERE+条件 
+SELECT `name` as username FROM score;
+
+三：
+
+CREATE DATABASE dt55_mysql character set utf8;
+
+use dt55_mysql;
+CREATE TABLE students(
+		id int,
+		stuName VARCHAR(50),
+		age int,
+		weight float
+);
+
+insert into students 
+VALUES(1,'张三',20,60),
+(2,'李四',30,66),
+(3,'王五',22,61)
+
+SELECT id as `主键`,stuName as '学生姓名',age as '年龄',weight as '体重' from students;
+SELECT * from students WHERE weight >=63;
+ 
